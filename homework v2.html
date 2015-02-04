@@ -1,0 +1,92 @@
+<!--
+Name: Sabrina Wallace, CS 270 Homework #1
+Partner: None
+Description: horizontal navigation menu that displays 
+             drop-down menu buttons.
+Input: none
+Output: none
+-->
+
+<html>
+<head>
+  <style type="text/css">
+div.example {border: #603 dotted; padding: 0.6em; margin: 1em 2em}
+
+div.tabs {
+  min-height: 7em;		/* No height: can grow if :target doesn't work */
+  position: relative;		/* Establish a containing block */
+  z-index: 0}			/* Block flips */
+  
+  
+div.tabs > div {
+  display: inline}		/* Text on the buttons all on one line */
+  
+  
+div.tabs > div > a {
+  color: black;			/* Makes it look like a button */
+  background: #CCC;		/* Turns tab used to light gray */
+  padding: 0.2em;		/* Some breathing space in between */
+  border-bottom: 0.1em solid #CCC} /* Connects tab and tab body */
+  
+  
+div.tabs > div:not(:target) > a {
+  background: #999}		/* Tabs that are not clicked turn dark gray */
+  
+  
+div.tabs > div:target > a,	/* Do this stuff to the item(s) */
+:target > a {
+  background: #CCC}		/* Tabs used is light gray */
+  
+  
+div.tabs > div > div {
+  background: #CCC;		/* Light gray */
+  z-index: -2;			/* Moves up up */
+  left: 0; top: 1.3em;		/* The selected stuff to the left and top */
+  bottom: 0; right: 0;		/* Covers the other stuff that isnt selected */
+  padding: 0.3em;		/* Padding of the words inside the bottom box */
+}	
+  
+div.tabs > div:not(:target) > div { /* So they stack on top of eachother instead of lining up */
+  position: absolute }		
+  
+div.tabs > div:target > div, :target > div {
+  position: absolute;		/* They are all stacked up */
+  z-index: -1}			/* Targeted div gets popped on top of the others */
+
+div.tabs :target {
+  outline: none}
+</style>
+</head>
+
+
+
+
+<body>
+
+<div class="tabs"> 
+
+     <div id="tab1"> <a href="#tab1">Home</a> <!-- Assigns it to About -->
+      <div></div>
+     </div>	
+	 
+     <div id="tab2"> <a href="#tab2">About</a> <!-- Assigns it to About -->
+      <div><a href="">Staff</a> | <a href="">History</a> | <a href="">Press</a></div> <!-- Add link Staff, History and Press -->
+     </div>
+
+     <div id="tab3"> <a href="#tab3">Media</a> <!-- Assigns it to Media -->
+      <div><a href="">Audio</a> | <a href="">Video</a></div> <!-- Add link Audio and link Video -->
+     </div>
+
+	 <div id="tab4"> <a href="#tab4">Blog</a> <!-- Assigns it to Blog -->
+      <div></div>
+     </div>	
+	
+	 <div id="tab5"> <a href="#tab5">Contact</a> <!-- Assigns it to Contact -->
+      <div></div>
+     </div>	
+
+</div> 
+
+
+</body>
+</html>
